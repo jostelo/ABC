@@ -1,0 +1,130 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{algorithm2e}
+\begin{document}
+\chapter{Why use Approximative Bayesian Computation?}
+\begin{itemize}
+\item General setting: \begin{equation}
+p(\theta|Y) \propto p(Y|\theta)p(\theta)
+\end{equation}
+\item Being able to calculate the Likelihood seems like an unavoidable necessity, even when we do not need the marginal (as in MCMC). However, this is not the case in many situations: 
+\begin{itemize}
+\item Likelihood has no closed-form
+\item Likelihood is costly to evaluate
+\item Likelihood is actually unknown
+\end{itemize}
+\item \textbf{EXAMPLE!}
+\item Widens the space of possible models. One should not only consider the tractable ones. 
+\item ABC is a "Likelihood-free" way to sample from your posterior.
+\end{itemize}
+
+
+
+
+\chapter{How does it work?}
+
+\section{Summary Statistics}
+\begin{itemize}
+
+\item Standard: Use a mapping $s_{obs}()$, which summarizes $y_{obs}$ sufficiently 
+\item Why summary statistics? The probability of generating a data set $\hat {D}$ with a small distance to D typically decreases as the dimensionality of the data increases. This leads to a substantial decrease in the computational efficiency of the above basic ABC rejection algorithm. A common approach to lessen this problem is to replace D with a set of lower-dimensional summary statistics 
+\item Sufficient Statistic (heuristically by Fisher):"A statistic satisfies the criterion if sufficiency when not other statistic which can be calculated from the same sample provides any additional information"
+\item Aim: Bayes sufficiency $p(\theta|x)=p(\theta|S(x))$ for all priors $p(\theta)$ (Kolmogorov 1942)
+\item If summary statistic sufficient, no introduced error
+\item But in practice there are no sufficient summary statistics used; s yields approximation
+\end{itemize}
+\section{...for discrete data}
+
+Idea: $(\theta,y) \sim p(\theta)p(y|\theta) $\\
+$\rightarrow$ Generate a joint sample $(\theta,y)$
+\begin{itemize}
+\item Notation: $y_{obs}={y_{obs,1},...,y_{obs,n}}$
+
+
+
+\item Simple Algorithm: 
+\begin{enumerate}
+\item Sample  $\theta_i$ from  $p(\theta)$
+\item Simulate $\tilde{s_i}$ from $p(s|\theta_i)$
+\item accept $\theta_i$ if $s_i=s_{obs}$ 
+\end{enumerate} 
+The accepted $\theta_i$ are drawn from the ABC posterior,which in this case is the posterior. So we have generated a random sample from posterior.
+\item \textbf{EXAMPLE!} (...also with summary statistics)
+\item sufficient statistic for binomial distribution sample
+
+\end{itemize}
+
+
+\section{...with any data}
+\subsection{Kernels}
+\begin{itemize}
+\item Problem: With continuous data, $P(s_i=s_obs)=0 \ \rightarrow$ Acceptance rate is $0$.
+\item Solution: introduce a Kernel function $K_{\epsilon}(||.||)$, with $\epsilon$ being a scaling parameter  and $||.||$ a distance metric. So we can accept $\theta_i$, if $s_i$ is "near" to $s_{obs}$
+\item Algorithm
+\begin{enumerate}
+\item Sample  $\theta_i$ from  $p(\theta)$
+\item Simulate $\tilde{s_i}$ from $p(s|\theta_i)$
+\item accept $\theta_i$ with probability proportional to $K_{\epsilon}(||s_i-s_{obs}||)$ 
+\end{enumerate} 
+Posterior:
+\begin{equation}
+p_{\epsilon,K}(\theta|S_{obs})\propto p(\theta)p_{\epsilon,K}(S_{obs}|\theta)=p(\theta)\int K_{\epsilon}(d(S,S_{obs}))p(S|\theta)dS
+\end{equation}
+
+\item \textbf{EXAMPLE!}
+\item How to set $\epsilon$? On the one hand, $\epsilon$ should not be too small, otherwise too few sampled parameters get accepted. On the other hand, a tolerance that is large enough that every point in the parameter space becomes accepted will yield a replica of the prior distribution.
+
+\end{itemize}
+
+\chapter{ABC-MCMC}
+\begin{itemize}
+\item Algorithm:
+\begin{enumerate}
+\item Choose a value for $\epsilon$
+\item Sample a new value $\theta$ from the proposal distribution $q(.|\theta)$
+\end{enumerate}
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwResult{Write here the result }
+ initialization: $\epsilon$; M iterations; proposal density $q(.|\theta)$; $\theta_1$ \\
+ \For{m=1:M}{
+   Sample $\theta'$ from $q(.|\theta)$\\
+   Simulate $s$ from $f_n(s'|\theta')$\\
+   Draw $u$ from $U_{[0,1]}$\\
+   Calculate $\alpha=min\{1,\frac{p(\theta')q(\theta^{(t)}|\theta')}{p(\theta^{(t)})q(\theta'|\theta^{(t)})||s-s_{obs}||<=\epsilon}\}$\\
+   
+  \eIf{$\alpha$>u}{
+  Set $\theta_{t+1}=\theta'$
+   }{
+  Set $\theta^{t+1}=\theta^{t}$	
+	  }
+ }
+ \caption{ABC-MCMC}
+\end{algorithm}
+
+\item Why use Kernels? With good prior on variance, Kernels more efficient???
+\end{itemize}
+
+\chapter{Pitfalls}
+\begin{itemize}
+\item error $\epsilon$
+\item insufficient summary statistic
+\item low acceptance rates
+\item Approximation error is unknown. We approximate $p(\theta|s)$ $p(\theta|y{obs})$
+\end{itemize}
+
+\chapter{Applications}
+\begin{itemize}
+\item
+\end{itemize}
+
+\chapter{Summary}
+\begin{itemize}
+\item If Likelihood can be formulated and computed efficiently, ABC yields no advantage
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,72 @@
+\begin{thebibliography}{}
+
+\bibitem[Beaumont, 2010]{beaumont2010approximate}
+Beaumont, M.~A. (2010).
+\newblock Approximate bayesian computation in evolution and ecology.
+\newblock {\em Annual review of ecology, evolution, and systematics},
+  41:379--406.
+
+\bibitem[Beaumont, 2019]{ABC_beaumont19}
+Beaumont, M.~A. (2019).
+\newblock Approximate bayesian computation.
+\newblock {\em Annual Review of Statistics and Its Application}, 6(1):379--403.
+
+\bibitem[Beaumont et~al., 2002]{beaumont2002approximate}
+Beaumont, M.~A., Zhang, W., and Balding, D.~J. (2002).
+\newblock Approximate bayesian computation in population genetics.
+\newblock {\em Genetics}, 162(4):2025--2035.
+
+\bibitem[Blum and Fran{\c{c}}ois, 2010]{blum2010non}
+Blum, M.~G. and Fran{\c{c}}ois, O. (2010).
+\newblock Non-linear regression models for approximate bayesian computation.
+\newblock {\em Statistics and Computing}, 20(1):63--73.
+
+\bibitem[Csill{\'e}ry et~al., 2012]{csillery2012abc}
+Csill{\'e}ry, K., Fran{\c{c}}ois, O., and Blum, M.~G. (2012).
+\newblock abc: an r package for approximate bayesian computation.
+\newblock {\em Methods in ecology and evolution}, 3(3):475--479.
+
+\bibitem[Fasiolo and Wood, 2015]{fasiolo2015approximate}
+Fasiolo, M. and Wood, S.~N. (2015).
+\newblock Approximate methods for dynamic ecological models.
+\newblock {\em arXiv preprint arXiv:1511.02644}.
+
+\bibitem[Fisher, 1922]{fisher1922mathematical}
+Fisher, R.~A. (1922).
+\newblock On the mathematical foundations of theoretical statistics.
+\newblock {\em Philosophical Transactions of the Royal Society of London.
+  Series A, Containing Papers of a Mathematical or Physical Character},
+  222(594-604):309--368.
+
+\bibitem[Hartig et~al., 2011]{hartig2011statistical}
+Hartig, F., Calabrese, J.~M., Reineking, B., Wiegand, T., and Huth, A. (2011).
+\newblock Statistical inference for stochastic simulation models--theory and
+  application.
+\newblock {\em Ecology letters}, 14(8):816--827.
+
+\bibitem[Klein et~al., 2019]{klein2019marginally}
+Klein, N., Nott, D.~J., and Smith, M.~S. (2019).
+\newblock Marginally-calibrated deep distributional regression.
+\newblock {\em arXiv preprint arXiv:1908.09482}.
+
+\bibitem[Nott, 2018]{nott123}
+Nott, D.~J. (2018).
+\newblock Lecture: A short introduction to approximate bayesian computation.
+
+\bibitem[Sisson et~al., 2018]{sisson2018handbook}
+Sisson, S.~A., Fan, Y., and Beaumont, M. (2018).
+\newblock {\em Handbook of approximate Bayesian computation}.
+\newblock Chapman and Hall/CRC.
+
+\bibitem[Turchin and Ellner, 2000]{turchin2000living}
+Turchin, P. and Ellner, S.~P. (2000).
+\newblock Living on the edge of chaos: population dynamics of fennoscandian
+  voles.
+\newblock {\em Ecology}, 81(11):3099--3116.
+
+\bibitem[Wood, 2010]{wood2010statistical}
+Wood, S.~N. (2010).
+\newblock Statistical inference for noisy nonlinear ecological dynamic systems.
+\newblock {\em Nature}, 466(7310):1102.
+
+\end{thebibliography}

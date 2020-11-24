@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Discrete}{4}{0}{2}
+\beamer@sectionintoc {3}{Continuous}{4}{0}{3}
+\beamer@sectionintoc {4}{Kernel}{6}{0}{4}
+\beamer@sectionintoc {5}{Summary statistics}{2}{0}{5}
+\beamer@sectionintoc {6}{Further refinement}{6}{0}{6}
+\beamer@sectionintoc {7}{Application}{3}{0}{7}
+\beamer@sectionintoc {8}{References}{12}{0}{8}
+\beamer@sectionintoc {9}{Sponge}{6}{0}{9}
